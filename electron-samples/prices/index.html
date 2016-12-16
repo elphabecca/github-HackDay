@@ -25,6 +25,7 @@
           <h2>
             <span id="oil-price" class="price"></span>
             <small id="oil-change" class="change"></small>
+            <small id="oil-percent" class="change"></small>
           </h2>
         </div>
       </div>
@@ -36,6 +37,7 @@
           <h2>
             <span id="gold-price" class="price"></span>
             <small id="gold-change" class="change"></small>
+            <small id="gold-percent" class="change"></small>
           </h2>
         </div>
       </div>
@@ -47,6 +49,7 @@
           <h2>
             <span id="silver-price" class="price"></span>
             <small id="silver-change" class="change"></small>
+            <small id="silver-percent" class="change"></small>
           </h2>
         </div>
       </div>
@@ -58,27 +61,11 @@
           <h2>
             <span id="platinum-price" class="price"></span>
             <small id="platinum-change" class="change"></small>
+            <small id="platinum-percent" class="change"></small>
           </h2>
         </div>
       </div>
 
     </div>
-
-    <script type="text/javascript">
-
-    function openYahoo(evt) {
-        alert("YOU ARE HERE");
-        webContents.open('https://finance.yahoo.com/')
-      }
-
-      $(".row").on('dblclick', openYahoo)
-
-      webContents.on('new-window', function(event, url){
-        event.preventDefault();
-        open(url);
-      });
-
-    </script>
-
   </body>
 </html>

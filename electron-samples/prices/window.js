@@ -20,6 +20,7 @@ $.ajax(url).done(function (csv) {
   for (var i = 0; i < lines.length; i++) {
     //Split the line up by comma
     var prices = lines[i].split(',')
+    console.log(i, prices)
 
     // Previous closing price of stock symbol
     var previousPrice = parseFloat(prices[0], 10)
@@ -30,24 +31,33 @@ $.ajax(url).done(function (csv) {
     // Change between closing price and current price rounded to 2 decimal points.
     var change = Math.round((currentPrice - previousPrice) * 100) / 100
 
-    // Add a leading + for positive change
+    // Percent Change
+    var percentChange = Math.round((change/previousPrice) * 100 * 100) / 100
+    percentChange = percentChange + '%'
+
+    // Add a leading + for positive change, percentChange
     if (change >= 0) {
       change = '+' + change
+      percentChange = '+' + percentChange
     }
 
     // Add prices and changes to HTML element
     if (i == 0) { // Oil
       $('#oil-price').text(currentPrice.toLocaleString())
       $('#oil-change').text(change)
+      $('#oil-percent').text(percentChange)
     } else if (i == 1) { // Gold
       $('#gold-price').text(currentPrice.toLocaleString())
       $('#gold-change').text(change)
+      $('#gold-percent').text(percentChange)
     } else if (i == 2) { // Silver
       $('#silver-price').text(currentPrice.toLocaleString())
       $('#silver-change').text(change)
+      $('#silver-percent').text(percentChange)
     } else if (i == 3) { // Platinum
       $('#platinum-price').text(currentPrice.toLocaleString())
       $('#platinum-change').text(change)
+      $('#platinum-percent').text(percentChange)
     }
   }
 }).fail(function (error) {
@@ -55,3 +65,6 @@ $.ajax(url).done(function (csv) {
 })
 
 })
+
+// const {ipcRenderer} = require('electron')
+// console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"

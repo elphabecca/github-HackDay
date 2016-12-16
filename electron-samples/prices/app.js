@@ -11,7 +11,7 @@ electron.app.once('ready', function () {
     // Set the initial width to 400px
     width: 400,
     // Set the initial height to 400px
-    height: 400,
+    height: 600,
     // Don't show the window until it ready, this prevents any white flickering
     show: false,
     // Don't allow the window to be resized.
@@ -31,6 +31,12 @@ electron.app.once('ready', function () {
   })
 
 })
+
+// const {ipcMain} = require('electron')
+//   ipcMain.on('asynchronous-message', (event, arg) => {
+//     console.log(arg)  // prints "ping"
+//   event.sender.send('asynchronous-reply', 'pong')
+//   })
 
 
  
