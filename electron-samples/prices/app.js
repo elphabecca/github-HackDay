@@ -15,7 +15,7 @@ electron.app.once('ready', function () {
     // Don't show the window until it ready, this prevents any white flickering
     show: false,
     // Don't allow the window to be resized.
-    resizable: false,
+    resizable: true,
   })
 
   // Load a URL in the window to the local index.html path
@@ -29,5 +29,8 @@ electron.app.once('ready', function () {
   window.once('ready-to-show', function () {
     window.show()
   })
+
 })
+
+
  
